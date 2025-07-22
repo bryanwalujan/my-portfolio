@@ -1,0 +1,323 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --muted-foreground: #4b5563;
+  --primary: #6366f1;
+  --primary-light: #8183f4;
+  --primary-dark: #4f46e5;
+  --primary-foreground: #ffffff;
+  --secondary: #10b981;
+  --secondary-light: #34d399;
+  --secondary-dark: #059669;
+  --tertiary: #8b5cf6;
+  --tertiary-light: #a78bfa;
+  --tertiary-dark: #7c3aed;
+  --quaternary: #ef4444;
+  --quaternary-light: #f87171;
+  --quaternary-dark: #dc2626;
+  --quinary: #f59e0b;
+  --quinary-light: #fbbf24;
+  --quinary-dark: #d97706;
+  --muted: #f3f4f6;
+  --border: #e5e7eb;
+  --border-muted: #e5e7eb;
+  --glass: rgba(255, 255, 255, 0.8);
+  --accent: #06b6d4;
+  --laravel: #ff2d20;
+  --react: #61dafb;
+  --python-blue: #3776ab;
+  --python-yellow: #ffd43b;
+  --cpp: #00599c;
+  --c: #a8b9cc;
+  --java: #ed8b00;
+  --mysql-blue: #00758f;
+  --mysql-orange: #f29111;
+  --tailwind: #38bdf8;
+  --bootstrap: #7952b3;
+  --arduino: #00979d;
+  --aws: #ff9900;
+  --azure: #0078d4;
+  --git: #f05032;
+  --neutral: #6b7280; /* For skills without specific branding */
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --muted-foreground: #94a3b8;
+  --primary: #818cf8;
+  --primary-light: #a5b4fc;
+  --primary-dark: #6366f1;
+  --primary-foreground: #ffffff;
+  --secondary: #34d399;
+  --secondary-light: #6ee7b7;
+  --secondary-dark: #10b981;
+  --tertiary: #a78bfa;
+  --tertiary-light: #c4b5fd;
+  --tertiary-dark: #8b5cf6;
+  --quaternary: #f87171;
+  --quaternary-light: #fca5a5;
+  --quaternary-dark: #ef4444;
+  --quinary: #fbbf24;
+  --quinary-light: #fcd34d;
+  --quinary-dark: #f59e0b;
+  --muted: #1e293b;
+  --border: #334155;
+  --border-muted: #334155;
+  --glass: rgba(15, 23, 42, 0.8);
+  --accent: #22d3ee;
+  --laravel: #ff4d4f; /* Slightly lighter for dark mode */
+  --react: #7ee8fa;
+  --python-blue: #4b9cd3;
+  --python-yellow: #ffe873;
+  --cpp: #1e88e5;
+  --c: #c3cee1;
+  --java: #f4a261;
+  --mysql-blue: #00a3cc;
+  --mysql-orange: #f5b041;
+  --tailwind: #5cc9ff;
+  --bootstrap: #9b59b6;
+  --arduino: #00b7c3;
+  --aws: #ffb74d;
+  --azure: #0091ff;
+  --git: #f97316;
+  --neutral: #9ca3af;
+}
+
+/* Base styles */
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--foreground);
+  background-color: var(--background);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Text effects */
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: gradientShift 3s ease infinite;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dark .text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Animation classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+.animate-wave {
+  animation: wave 2s ease infinite;
+  transform-origin: 70% 70%;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Hover effects */
+.hover-rotate {
+  transition: transform 0.3s ease;
+}
+
+.hover-rotate:hover {
+  transform: rotate(5deg);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.hover-tilt {
+  transition: transform 0.3s ease;
+}
+
+.hover-tilt:hover {
+  transform: perspective(500px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--primary-foreground);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
+  transform: rotate(30deg);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Navbar specific styles */
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0.3;
+  animation: float 10s ease-in-out infinite;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .glass {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
